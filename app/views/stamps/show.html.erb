@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @stamp.user.email %>
+</p>
+
+<p>
+  <strong>Speaker:</strong>
+  <%= @stamp.speaker %>
+</p>
+
+<p>
+  <strong>Spoken date:</strong>
+  <%= @stamp.spoken_date.strftime("%b %d, %Y") %>
+</p>
+
+<p>
+  <strong>Completion date:</strong>
+  <%= @stamp.completion_date.strftime("%b %d, %Y") %>
+</p>
+
+<p>
+  <strong>Outcome:</strong>
+  <%= @stamp.outcome %>
+</p>
+
+<p>
+  <strong>Proof:</strong>
+  <%= @stamp.proof %>
+</p>
+
+<p>
+  <strong>Quote:</strong>
+  <%= @stamp.quote %>
+</p>
+
+<p>
+  <strong>Completed at:</strong>
+  <%= @stamp.completed_at.strftime("%b %d, %Y") %>
+</p>
+
+<%= link_to 'Edit', edit_stamp_path(@stamp) %> |
+<%= link_to 'Back', stamps_path %>

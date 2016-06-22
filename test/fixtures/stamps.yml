@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  speaker: MyString
+  spoken_date: 2016-06-22 13:44:42
+  completion_date: 2016-06-22 13:44:42
+  outcome: false
+  proof: MyString
+  quote: MyText
+  completed_at: 2016-06-22 13:44:42
+
+two:
+  user: two
+  speaker: MyString
+  spoken_date: 2016-06-22 13:44:42
+  completion_date: 2016-06-22 13:44:42
+  outcome: false
+  proof: MyString
+  quote: MyText
+  completed_at: 2016-06-22 13:44:42

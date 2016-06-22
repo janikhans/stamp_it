@@ -1,0 +1,17 @@
+<%= simple_form_for(@stamp) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :speaker, readonly: true %>
+    <%= f.input :spoken_date, readonly: true %>
+    <%= f.input :completion_date, readonly: true %>
+    <%= f.input :outcome %>
+    <%= f.input :proof, readonly: true %>
+    <%= f.input :quote, readonly: true %>
+    <%= f.input :completed_at %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
