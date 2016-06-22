@@ -1,0 +1,29 @@
+<h1>Bets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>User</th>
+      <th>Stamp</th>
+      <th>Outcome</th>
+      <th>Wager</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bets.each do |bet| %>
+      <tr>
+        <td><%= bet.id %></td>
+        <td><%= bet.user.email %></td>
+        <td><%= link_to "View Stamp", bet.stamp %></td>
+        <td><%= bet.outcome %></td>
+        <td><%= bet.wager %></td>
+        <td><%= link_to 'Show', bet.stamp %></td>
+        <td><%= link_to 'Edit', edit_stamp_bet_path(bet.stamp, bet) %></td>
+        <td><%= link_to 'Destroy', [bet.stamp, bet], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,0 +1,12 @@
+<%= simple_form_for([@stamp, @bet]) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :outcome, :as => :select, :label => "Will It Happen?" %>
+    <%= f.input :wager %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

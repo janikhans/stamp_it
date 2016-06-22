@@ -10,6 +10,8 @@ class StampsController < ApplicationController
   # GET /stamps/1
   # GET /stamps/1.json
   def show
+    @bets = @stamp.bets.all
+    @bet = @stamp.bets.build
   end
 
   # GET /stamps/new

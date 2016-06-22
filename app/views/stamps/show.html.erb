@@ -37,8 +37,36 @@
 
 <p>
   <strong>Completed at:</strong>
-  <%= @stamp.completed_at.strftime("%b %d, %Y") %>
+  <%= @stamp.completed_at.strftime("%b %d, %Y") if @stamp.completed_at %>
 </p>
 
 <%= link_to 'Edit', edit_stamp_path(@stamp) %> |
 <%= link_to 'Back', stamps_path %>
+
+<h1>New Bet</h1>
+<%= render 'bets/form' %>
+
+<h1>Bets</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Outcome</th>
+      <th>Wager</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bets.each do |bet| %>
+      <tr>
+        <td><%= bet.user.email %></td>
+        <td><%= bet.outcome %></td>
+        <td><%= bet.wager %></td>
+        <td><%= link_to 'Edit', edit_stamp_bet_path(@stamp, bet) %></td>
+        <td><%= link_to 'Destroy', [@stamp, bet], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

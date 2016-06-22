@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
-  resources :stamps
+
   devise_for :users
+
+  resources :stamps do
+    resources :bets, only: [:create,:edit,:update,:destroy]
+  end
+
+  resources :bets, only: [:index]
 
   root 'stamps#index'
 end

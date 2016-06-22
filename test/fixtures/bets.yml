@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  stamp: one
+  outcome: false
+  wager: 1
+
+two:
+  user: two
+  stamp: two
+  outcome: false
+  wager: 1
