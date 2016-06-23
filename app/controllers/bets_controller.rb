@@ -1,8 +1,14 @@
 class BetsController < ApplicationController
   before_action :set_stamp, except: [:index]
 
+  before_action :authenticate_user!
+
   def index
     @bets = Bet.all
+  end
+
+  def new
+
   end
 
   def edit
@@ -42,6 +48,6 @@ class BetsController < ApplicationController
     end
 
     def bet_params
-      params.require(:bet).permit(:user_id, :stamp_id, :outcome, :wager)
+      params.require(:bet).permit(:outcome, :wager)
     end
 end

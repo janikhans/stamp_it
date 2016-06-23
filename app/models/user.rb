@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :stamps
   has_many :bets
+  has_many :payouts
 end

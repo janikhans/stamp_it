@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160622212115) do
+ActiveRecord::Schema.define(version: 20160622231234) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,18 @@ ActiveRecord::Schema.define(version: 20160622212115) do
     t.datetime "updated_at", null: false
     t.index ["stamp_id"], name: "index_bets_on_stamp_id", using: :btree
     t.index ["user_id"], name: "index_bets_on_user_id", using: :btree
+  end
+
+  create_table "payouts", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "stamp_id"
+    t.integer  "bet_id"
+    t.integer  "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bet_id"], name: "index_payouts_on_bet_id", using: :btree
+    t.index ["stamp_id"], name: "index_payouts_on_stamp_id", using: :btree
+    t.index ["user_id"], name: "index_payouts_on_user_id", using: :btree
   end
 
   create_table "stamps", force: :cascade do |t|
@@ -61,5 +73,8 @@ ActiveRecord::Schema.define(version: 20160622212115) do
 
   add_foreign_key "bets", "stamps"
   add_foreign_key "bets", "users"
+  add_foreign_key "payouts", "bets"
+  add_foreign_key "payouts", "stamps"
+  add_foreign_key "payouts", "users"
   add_foreign_key "stamps", "users"
 end
