@@ -15,6 +15,7 @@ gem 'devise'
 gem 'simple_form'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'font-awesome-rails'
+gem 'rails_12factor'
 
 group :development, :test do
   gem 'byebug', platform: :mri
@@ -29,3 +30,5 @@ group :development do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+ruby "2.2.3"
