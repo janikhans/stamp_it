@@ -1,6 +1,6 @@
-<div class="card stamp-card">
+<div id="stamp_<%= stamp.id %>" class="card stamp-card">
   <div class="card-image">
-      <img class="img-responsive" src="http://material-design.storage.googleapis.com/publish/v_2/material_ext_publish/0Bx4BSt6jniD7TDlCYzRROE84YWM/materialdesign_introduction.png">
+    <%= image_tag Dir.new(Rails.root.to_s + '/app/assets/images').to_a.select{|f|    f.downcase.match(/\.jpg|\.jpeg|\.png/) }.sample, class: "img-responsive" %>
   </div>
   <div class="speaker-wrapper">
     <div class='speaker'><%= stamp.speaker %></div>
@@ -58,5 +58,4 @@
       </form>
     </div>
   </div>
-
 </div>

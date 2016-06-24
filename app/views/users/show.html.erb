@@ -70,42 +70,6 @@
   </div>
   <div class="col-md-6">
     <%= render @stamps %>
-
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Payout</th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @payouts.each do |payout| %>
-          <tr>
-            <td><%= link_to "View Stamp", payout.stamp %></td>
-            <td><%= payout.amount %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-
-    <%= 10.times do |n| %>
-      <div class="card">
-          <div class="card-image">
-              <img class="img-responsive" src="http://material-design.storage.googleapis.com/publish/v_2/material_ext_publish/0Bx4BSt6jniD7TDlCYzRROE84YWM/materialdesign_introduction.png">
-              <span class="card-title">Material Cards</span>
-          </div>
-
-          <div class="card-content">
-              <p>Cards for display in portfolio style material design by Google.</p>
-          </div>
-
-          <div class="card-action">
-              <a href="#" target="new_blank">Link</a>
-              <a href="#" target="new_blank">Link</a>
-          </div>
-      </div>
-    <% end %>
   </div>
   <div class="col-md-3">
 
@@ -113,7 +77,6 @@
         <div class="card-content">
             <p>Cards for display in portfolio style material design by Google.</p>
         </div>
-
         <div class="card-action">
             <a href="#" target="new_blank">Link</a>
             <a href="#" target="new_blank">Link</a>
