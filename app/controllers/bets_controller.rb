@@ -1,6 +1,5 @@
 class BetsController < ApplicationController
   before_action :set_stamp, except: [:index]
-
   before_action :authenticate_user!
 
   def index
@@ -8,7 +7,7 @@ class BetsController < ApplicationController
   end
 
   def new
-
+    @bet = @stamp.bets.build
   end
 
   def edit
@@ -19,19 +18,21 @@ class BetsController < ApplicationController
     @bet = @stamp.bets.build(bet_params)
     @bet.user = current_user
 
-    if @bet.save
-      redirect_to @stamp, notice: 'Bet was successfully created.'
-    else
-      render :new
+    respond_to do |format|
+      if @bet.save
+        format.js
+      else
+        format.js
+      end
     end
   end
 
   def update
     @bet = @stamp.bets.find(params[:id])
     if @bet.update(bet_params)
-      redirect_to @stamp, notice: 'Bet was successfully updated.'
+      redirect_to :back, notice: 'Bet was successfully updated.'
     else
-      render :edit
+      render :back, alert: "Bet was not updated."
     end
   end
 
@@ -43,6 +44,7 @@ class BetsController < ApplicationController
   end
 
   private
+
     def set_stamp
       @stamp = Stamp.find(params[:stamp_id])
     end

@@ -1,0 +1,13 @@
+<div id="new_<%= @stamp.id %>_bet" class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <a class="close" data-dismiss="modal">&times;</a>
+        <h4 class="modal-title"><%= icon(:plus) %> Place Bet</h4>
+      </div>
+      <div id="new-bet-form" class="modal-body">
+        <%= render 'form' %>
+      </div>
+    </div>
+  </div>
+</div>

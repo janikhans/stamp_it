@@ -6,8 +6,10 @@ Rails.application.routes.draw do
   resources :stamps do
     resources :bets, only: [:create, :edit, :update, :destroy, :new]
   end
-
+  
   resources :bets, only: [:index]
 
-  root 'stamps#index'
+  resources :dashboard, only: [:index]
+
+  root 'dashboard#index'
 end

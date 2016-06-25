@@ -3,6 +3,8 @@ class Stamp < ApplicationRecord
   has_many :bets
   has_many :payouts
 
+  validates :user, presence: true
+
   def completed?
     !completed_at.nil? && !outcome.nil?
   end

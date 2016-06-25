@@ -29,9 +29,21 @@
       </div>
     </div>
     <div class="bet-details">
-
       <div class="bet-single-detail">
         <%= icon(:calendar) %> <%= distance_of_time_in_words(Time.now, stamp.completion_date) %> left
+      </div>
+      <div class="bet-single-detail">
+        <% if stamp.completed_at.nil? %>
+          <%= link_to new_stamp_bet_path(stamp), remote: true do %>
+            <%= button_tag class: "btn btn-success btn-xs" do %>
+              Place Bet
+            <% end %>
+          <% end %>
+        <% else %>
+          <span data-toggle="tooltip" title="<%= l(stamp.completed_at.in_time_zone) %>">
+            <%= stamp.outcome %>
+          </span>
+        <% end %>
       </div>
       <div class="bet-single-detail" data-toggle="tooltip" title="Current Pot">
         <%= icon(:bank) %> <%= stamp.pot %>
@@ -39,23 +51,6 @@
       <div class="bet-single-detail" data-toggle="tooltip" title="Betters">
         <%= icon(:users) %> <%= stamp.bets.count %>
       </div>
-    </div>
-  </div>
-  <div id="s_<%= stamp.id %>" class="collapse">
-    <div class="card-action">
-      <form class="form-inline">
-        <div class="form-group">
-          <div class="input-group">
-            <div class="input-group-addon">$</div>
-            <input type="text" class="form-control" id="exampleInputAmount" placeholder="Wager">
-          </div>
-        </div>
-        <div class="btn-group btn-toggle">
-          <button class="btn btn-sm btn-default">YES</button>
-          <button class="btn btn-sm btn-primary active">NO</button>
-        </div>
-        <button type="submit" class="btn btn-primary">Bet</button>
-      </form>
     </div>
   </div>
 </div>
