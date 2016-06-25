@@ -15,12 +15,10 @@ gem 'devise'
 gem 'simple_form'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'font-awesome-rails'
-gem 'rails_12factor'
 gem 'faker'
 
 group :development, :test do
   gem 'byebug', platform: :mri
-  gem 'faker'
 end
 
 group :development do
@@ -28,6 +26,10 @@ group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+group :production do
+  gem 'rails_12factor'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
