@@ -34,6 +34,13 @@
       </div>
       <div class="bet-single-detail">
         <% if stamp.completed_at.nil? %>
+          <% if stamp.user == current_user %>
+            <%= link_to set_complete_stamp_path(stamp), method: :post, remote: true do %>
+              <%= button_tag class: "btn btn-success btn-xs" do %>
+                Complete
+              <% end %>
+            <% end %>
+          <% end %>
           <%= link_to new_stamp_bet_path(stamp), remote: true do %>
             <%= button_tag class: "btn btn-success btn-xs" do %>
               Place Bet

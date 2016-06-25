@@ -1,7 +1,7 @@
 class StampsController < ApplicationController
-
+  before_filter :authorize_user, only: [:edit, :update, :destroy, :set_complete, :mark_complete]
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_stamp, only: [:show, :edit, :update, :destroy]
+  before_action :set_stamp, only: [:show, :edit, :update, :destroy, :mark_complete, :set_complete]
 
   # GET /stamps
   # GET /stamps.json
@@ -65,7 +65,24 @@ class StampsController < ApplicationController
     end
   end
 
+  def mark_complete
+    if @stamp.mark_complete!(params[:stamp][:outcome], current_user)
+      redirect_to :back, notice: "Winnings have been distributed"
+    else
+      redirect_to :back, alert: "#{@stamp.errors.full_messages.join(', ')}"
+    end
+  end
+
+  def set_complete
+  end
+
   private
+
+    def authorize_user
+      unless current_user == Stamp.find(params[:id]).user
+        render js: "alert('You don't have permission to do that');"
+      end
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_stamp
       @stamp = Stamp.find(params[:id])
@@ -74,9 +91,5 @@ class StampsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def new_stamp_params
       params.require(:stamp).permit(:speaker, :spoken_date, :completion_date, :proof, :quote)
-    end
-
-    def edit_stamp_params
-      params.require(:stamp).permit(:outcome, :completed_at)
     end
 end

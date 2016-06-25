@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
 
   resources :stamps do
+    member do
+      post "mark_complete"
+      post "set_complete"
+    end
     resources :bets, only: [:create, :edit, :update, :destroy, :new]
   end
 

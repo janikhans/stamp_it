@@ -9,11 +9,13 @@ class Stamp < ApplicationRecord
     !completed_at.nil? && !outcome.nil?
   end
 
-  def mark_complete!(outcome)
-    self.outcome = outcome
-    self.completed_at = DateTime.now
-    if save
+  def mark_complete!(outcome, user)
+    if self.completed_at.nil?
+      self.outcome = outcome
+      self.completed_at = DateTime.now
       self.distribute_winnings
+    else
+      return false
     end
   end
 

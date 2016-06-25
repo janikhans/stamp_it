@@ -1,0 +1,4 @@
+if ( !$('#mark_complete_<%= @stamp.id %>').length ) {
+  $('body').append('<%= j(render "set_complete") %>');
+}
+$('#mark_complete_<%= @stamp.id %>').modal();
