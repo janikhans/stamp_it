@@ -20,6 +20,7 @@ class Stamp < ApplicationRecord
       self.outcome = outcome
       self.completed_at = DateTime.now
       self.distribute_winnings
+      self.save
     else
       return false
     end

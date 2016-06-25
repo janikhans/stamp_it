@@ -18,7 +18,7 @@ janik = User.create!(username: 'Janik', email: 'janik.knittle@gmail.com', passwo
                password_confirmation: password)
 end
 
-20.times do |n|
+40.times do |n|
   user = User.all.sample
   speaker = Faker::Name.name
   spoken_date = Faker::Date.between(10.days.ago, 1.days.ago)
@@ -33,7 +33,7 @@ end
                quote: quote)
 end
 
-50.times do |n|
+200.times do |n|
   user = User.all.sample
   stamp = Stamp.all.sample
   wager = Faker::Number.between(1, 150)
@@ -42,4 +42,10 @@ end
                stamp: stamp,
                wager: wager,
                outcome: outcome)
+end
+
+20.times do |n|
+  stamp = Stamp.ongoing.sample
+  outcome = Faker::Boolean.boolean
+  stamp.mark_complete!(outcome, stamp.user)
 end
