@@ -3,6 +3,6 @@ class DashboardController < ApplicationController
 
   def index
     @user = current_user
-    @stamps = Stamp.all
+    @stamps = Stamp.includes(:user, :bets).page(params[:page])
   end
 end

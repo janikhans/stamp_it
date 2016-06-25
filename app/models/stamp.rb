@@ -1,9 +1,15 @@
 class Stamp < ApplicationRecord
+
+  scope :completed, -> { where "completed_at IS NOT NULL" }
+  scope :ongoing, -> { where  completed_at: nil }
+
   belongs_to :user
   has_many :bets
   has_many :payouts
 
   validates :user, presence: true
+
+  paginates_per 15
 
   def completed?
     !completed_at.nil? && !outcome.nil?

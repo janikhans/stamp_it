@@ -16,6 +16,7 @@ gem 'simple_form'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'font-awesome-rails'
 gem 'faker'
+gem 'kaminari', github: "amatsuda/kaminari", branch: '0-17-stable'
 
 group :development, :test do
   gem 'byebug', platform: :mri
