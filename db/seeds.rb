@@ -35,15 +35,15 @@ end
                quote: quote)
 end
 
-200.times do |n|
-  user = User.all.sample
-  stamp = Stamp.all.sample
-  wager = Faker::Number.between(1, 150)
-  outcome = Faker::Boolean.boolean
-  bet = Bet.create!(user: user,
-               stamp: stamp,
-               wager: wager,
-               outcome: outcome)
+User.all.each do |n|
+  stamps = Stamp.all.sample(5)
+  stamps.each do |s|
+    b = s.bets.build
+    b.user = n
+    b.wager = Faker::Number.between(1, 150)
+    b.outcome = Faker::Boolean.boolean
+    b.save
+  end
 end
 
 20.times do |n|
