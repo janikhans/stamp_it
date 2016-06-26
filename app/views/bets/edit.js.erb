@@ -1,0 +1,4 @@
+if ( !$('#edit_<%= @stamp.id %>_bet').length ) {
+  $('body').append('<%= j(render "modal_edit") %>');
+}
+$('#edit_<%= @stamp.id %>_bet').modal();

@@ -25,9 +25,9 @@
   <div data-toggle="collapse" data-target="#s_<%= stamp.id %>" class="card-footer">
     <% if stamp.bets.any? %>
       <div class="progress">
-        <div class="progress-bar progress-bar-success" style="width: <%= stamp.average*100 %>%" data-toggle="tooltip" title="<%= stamp.average*100 %>%">
+        <div class="progress-bar progress-bar-success" style="width: <%= (stamp.percent_true*100).round %>%" data-toggle="tooltip" title="<%= (stamp.percent_true*100).round %>%">
         </div>
-        <div class="progress-bar" style="width: <%= 100-stamp.average*100 %>%" data-toggle="tooltip" title="<%= 100-stamp.average*100 %>%">
+        <div class="progress-bar" style="width: <%= (100-stamp.percent_true*100).round %>%" data-toggle="tooltip" title="<%= (100-stamp.percent_true*100).round %>%">
         </div>
       </div>
     <% else %>
@@ -49,9 +49,18 @@
               <% end %>
             <% end %>
           <% end %>
-          <%= link_to new_stamp_bet_path(stamp), remote: true do %>
-            <%= button_tag class: "btn btn-success btn-xs" do %>
-              Place Bet
+          <% if stamp.has_user_bet?(current_user) %>
+          <% bet = stamp.bets.where(user: current_user).first %>
+            <%= link_to edit_stamp_bet_path(stamp, bet), remote: true do %>
+              <%= button_tag class: "btn btn-success btn-xs" do %>
+                Update Bet
+              <% end %>
+            <% end %>
+          <% else %>
+            <%= link_to new_stamp_bet_path(stamp), remote: true do %>
+              <%= button_tag class: "btn btn-success btn-xs" do %>
+                Place Bet
+              <% end %>
             <% end %>
           <% end %>
         <% else %>
@@ -63,7 +72,7 @@
       <div class="bet-single-detail" data-toggle="tooltip" title="Current Pot">
         <%= icon(:bank) %> <%= stamp.pot %>
       </div>
-      <div class="bet-single-detail" data-toggle="tooltip" title="Betters">
+      <div class="bet-single-detail" data-toggle="tooltip" title="Players">
         <%= icon(:users) %> <%= stamp.bets.count %>
       </div>
     </div>

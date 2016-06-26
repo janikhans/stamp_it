@@ -1,0 +1,13 @@
+<div class="card trending-card">
+    <div class="card-content">
+        <h4>Who To Follow</h4>
+    </div>
+    <div class="card-action">
+      <ul>
+        <% users = User.all.sample(5) %>
+        <% users.each do |s| %>
+          <li><%= link_to "#{s.username}", s %></li>
+        <% end %>
+      </ul>
+    </div>
+</div>

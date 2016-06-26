@@ -11,6 +11,10 @@ class Stamp < ApplicationRecord
 
   paginates_per 15
 
+  def has_user_bet?(user)
+    self.bets.where(user: user).any?
+  end
+
   def completed?
     !completed_at.nil? && !outcome.nil?
   end
@@ -30,7 +34,7 @@ class Stamp < ApplicationRecord
     bets.map(&:wager).reduce(0, :+)
   end
 
-  def average
+  def percent_true
     upvote = bets.where(outcome: true).count
     downvote = bets.where(outcome: false).count
     total = upvote + downvote

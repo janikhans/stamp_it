@@ -1,0 +1,8 @@
+<% if @bet.errors.any? %>
+  $('#edit-bet-form').html("<%= escape_javascript(render partial: 'bets/edit_form') %>");
+<% else %>
+  $('#edit-bet-form').html('<h1 class="text-center">Bet has been updated!</h1><p class="text-center">Good luck!</p>');
+  setTimeout(function(){
+    $('#edit_<%= @stamp.id %>_bet').modal('hide')
+  }, 4000);
+<% end %>

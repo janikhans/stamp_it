@@ -1,40 +1,6 @@
 <div class="row small-gutter">
   <div class="col-md-3">
-    <div class="card profile-card">
-      <div class="profile-header"></div>
-      <%= link_to @user, class: "avatar-link" do %>
-        <%= gravatar_for(@user, class: "avatar") %>
-      <% end %>
-  		<div class="user">
-  			<div class="username">
-  				<%= @user.username %>
-  			</div>
-  				<%= link_to "@#{@user.username}", @user %>
-  		</div>
-  		<div class="profile-stats">
-  			<ul class="stats-list">
-  				<li class="stat">
-            <%= link_to stamps_path do %>
-            <span class="stat-label">Stamps</span>
-            <span class="stat-value"><%= @user.stamps.count %></span>
-            <% end %>
-  				</li>
-  				<li class="stat">
-  					<a href="#" title="885 Following">
-  						<span class="stat-label">Worth</span>
-  						<span class="stat-value"><%= @user.worth %></span>
-  					</a>
-  				</li>
-  				<li class="stat">
-  					<a href="#" title="1.810 Followers">
-  						<span class="stat-label">Percentage</span>
-  						<span class="stat-value">87%</span>
-  					</a>
-				</li>
-			</ul>
-		</div>
-    </div>
-
+    <%= render 'shared/profile' %>
     <% if @user.stamps.any? %>
       <div class="card clear-card">
           <div class="card-content">
@@ -89,16 +55,7 @@
     <%= paginate @stamps %>
   </div>
   <div class="col-md-3">
-
-    <div class="card">
-        <div class="card-content">
-            <p>Cards for display in portfolio style material design by Google.</p>
-        </div>
-        <div class="card-action">
-            <a href="#" target="new_blank">Link</a>
-            <a href="#" target="new_blank">Link</a>
-        </div>
-    </div>
-
+    <%= render 'shared/trending' %>
+    <%= render 'shared/who_to_follow' %>
   </div>
 </div>

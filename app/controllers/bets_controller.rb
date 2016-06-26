@@ -29,10 +29,12 @@ class BetsController < ApplicationController
 
   def update
     @bet = @stamp.bets.find(params[:id])
-    if @bet.update(bet_params)
-      redirect_to :back, notice: 'Bet was successfully updated.'
-    else
-      render :back, alert: "Bet was not updated."
+    respond_to do |format|
+      if @bet.update(bet_edit_params)
+        format.js
+      else
+        format.js
+      end
     end
   end
 
@@ -51,5 +53,9 @@ class BetsController < ApplicationController
 
     def bet_params
       params.require(:bet).permit(:outcome, :wager)
+    end
+
+    def bet_edit_params
+      params.require(:bet).permit(:wager)
     end
 end

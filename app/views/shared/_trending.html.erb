@@ -1,0 +1,13 @@
+<div class="card trending-card">
+    <div class="card-content">
+        <h4>Trending</h4>
+    </div>
+    <div class="card-action">
+      <ul>
+        <% stamps = Stamp.all.sample(5) %>
+        <% stamps.each do |s| %>
+          <li><%= link_to "##{s.speaker}", s %></li>
+        <% end %>
+      </ul>
+    </div>
+</div>

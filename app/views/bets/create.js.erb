@@ -2,4 +2,7 @@
   $('#new-bet-form').html("<%= escape_javascript(render partial: 'bets/form') %>");
 <% else %>
   $('#new-bet-form').html('<h1 class="text-center">Bet Placed!</h1><p class="text-center">You will be able to track this bet now.</p>');
+  setTimeout(function(){
+    $('#new_<%= @stamp.id %>_bet').modal('hide')
+  }, 4000);
 <% end %>

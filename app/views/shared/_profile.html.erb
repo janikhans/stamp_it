@@ -1,0 +1,34 @@
+<div class="card profile-card">
+  <div class="profile-header"></div>
+  <%= link_to @user, class: "avatar-link" do %>
+    <%= gravatar_for(@user, class: "avatar") %>
+  <% end %>
+  <div class="user">
+    <div class="username">
+      <%= @user.username %>
+    </div>
+      <%= link_to "@#{@user.username}", @user %>
+  </div>
+  <div class="profile-stats">
+    <ul class="stats-list">
+      <li class="stat">
+        <%= link_to stamps_path do %>
+        <span class="stat-label">Stamps</span>
+        <span class="stat-value"><%= @user.stamps.count %></span>
+        <% end %>
+      </li>
+      <li class="stat">
+        <a href="#" title="885 Following">
+          <span class="stat-label">Worth</span>
+          <span class="stat-value"><%= @user.worth %></span>
+        </a>
+      </li>
+      <li class="stat">
+        <a href="#" title="1.810 Followers">
+          <span class="stat-label">Percentage</span>
+          <span class="stat-value">87%</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
