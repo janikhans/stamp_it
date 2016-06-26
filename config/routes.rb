@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   resources :stamps do
     member do
       post "mark_complete"
-      post "set_complete"
+      post "mark_complete_true"
+      post "mark_complete_false"
     end
     resources :bets, only: [:create, :edit, :update, :destroy, :new]
   end

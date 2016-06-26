@@ -1,0 +1,22 @@
+<div id="mark_complete_<%= @stamp.id %>" class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <a class="close" data-dismiss="modal">&times;</a>
+        <h4 class="modal-title"><%= icon(:check) %> Complete Stamp</h4>
+      </div>
+      <div id="complete-stamp" class="modal-body">
+        <h1 class="text-center">What was the outcome?</h1>
+        <div class="text-center">
+          <div class="btn-group">
+            <%= link_to "True", mark_complete_true_stamp_path(@stamp), method: :post, class: "btn btn-success btn-lg" %>
+            <%= link_to "False", mark_complete_false_stamp_path(@stamp), method: :post,  class: "btn btn-success btn-lg" %>
+          </div>
+        </div>
+        <div class="text-center">
+          <small>Be honest. The community does its own policing. You wouldn't want to hurt your reputation, now would you?</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

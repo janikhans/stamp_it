@@ -1,7 +1,7 @@
 class StampsController < ApplicationController
-  before_filter :authorize_user, only: [:edit, :update, :destroy, :set_complete, :mark_complete]
+  before_filter :authorize_user, only: [:edit, :update, :destroy, :mark_complete, :mark_complete_true, :mark_complete_false ]
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_stamp, only: [:show, :edit, :update, :destroy, :mark_complete, :set_complete]
+  before_action :set_stamp, only: [:show, :edit, :update, :destroy, :mark_complete, :mark_complete_true, :mark_complete_false]
 
   # GET /stamps
   # GET /stamps.json
@@ -66,14 +66,22 @@ class StampsController < ApplicationController
   end
 
   def mark_complete
-    if @stamp.mark_complete!(params[:stamp][:outcome], current_user)
+  end
+
+  def mark_complete_true
+    if @stamp.mark_complete!(true, current_user)
       redirect_to :back, notice: "Winnings have been distributed"
     else
       redirect_to :back, alert: "#{@stamp.errors.full_messages.join(', ')}"
     end
   end
 
-  def set_complete
+  def mark_complete_false
+    if @stamp.mark_complete!(false, current_user)
+      redirect_to :back, notice: "Winnings have been distributed"
+    else
+      redirect_to :back, alert: "#{@stamp.errors.full_messages.join(', ')}"
+    end
   end
 
   private

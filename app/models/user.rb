@@ -7,4 +7,8 @@ class User < ApplicationRecord
   has_many :stamps
   has_many :bets
   has_many :payouts
+
+  def worth
+    payouts.map(&:amount).reduce(0, :+)
+  end
 end

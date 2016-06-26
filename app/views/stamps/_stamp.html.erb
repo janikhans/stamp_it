@@ -21,13 +21,21 @@
   <div class="card-content">
       <p><%= stamp.quote %></p>
   </div>
-  <div  data-toggle="collapse" data-target="#s_<%= stamp.id %>" class="card-footer">
-    <div class="progress">
-      <div class="progress-bar progress-bar-success" style="width: <%= stamp.average*100 %>%" data-toggle="tooltip" title="<%= stamp.average*100 %>%">
+
+  <div data-toggle="collapse" data-target="#s_<%= stamp.id %>" class="card-footer">
+    <% if stamp.bets.any? %>
+      <div class="progress">
+        <div class="progress-bar progress-bar-success" style="width: <%= stamp.average*100 %>%" data-toggle="tooltip" title="<%= stamp.average*100 %>%">
+        </div>
+        <div class="progress-bar" style="width: <%= 100-stamp.average*100 %>%" data-toggle="tooltip" title="<%= 100-stamp.average*100 %>%">
+        </div>
       </div>
-      <div class="progress-bar" style="width: <%= 100-stamp.average*100 %>%" data-toggle="tooltip" title="<%= 100-stamp.average*100 %>%">
+    <% else %>
+    <div class="progress">
+      <div class="progress-bar progress-bar-danger" style="width: 100%" data-toggle="tooltip" title="No bets yet">
       </div>
     </div>
+    <% end %>
     <div class="bet-details">
       <div class="bet-single-detail">
         <%= icon(:calendar) %> <%= distance_of_time_in_words(Time.now, stamp.completion_date) %> left
@@ -35,7 +43,7 @@
       <div class="bet-single-detail">
         <% if stamp.completed_at.nil? %>
           <% if stamp.user == current_user %>
-            <%= link_to set_complete_stamp_path(stamp), method: :post, remote: true do %>
+            <%= link_to mark_complete_stamp_path(stamp), method: :post, remote: true do %>
               <%= button_tag class: "btn btn-success btn-xs" do %>
                 Complete
               <% end %>

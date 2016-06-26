@@ -16,13 +16,13 @@
   				<li class="stat">
             <%= link_to stamps_path do %>
             <span class="stat-label">Stamps</span>
-            <span class="stat-value">840</span>
+            <span class="stat-value"><%= @user.stamps.count %></span>
             <% end %>
   				</li>
   				<li class="stat">
   					<a href="#" title="885 Following">
   						<span class="stat-label">Worth</span>
-  						<span class="stat-value">2885</span>
+  						<span class="stat-value"><%= @user.worth %></span>
   					</a>
   				</li>
   				<li class="stat">
