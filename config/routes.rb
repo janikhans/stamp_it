@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root 'pages#index'
+
   devise_for :users
   resources :users, only: [:show]
 
@@ -14,7 +16,6 @@ Rails.application.routes.draw do
 
   resources :bets, only: [:index]
 
-  resources :dashboard, only: [:index]
+  get 'dashboard' => 'dashboard#index'
 
-  root 'dashboard#index'
 end
