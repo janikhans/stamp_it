@@ -44,7 +44,7 @@
         <% if stamp.completed_at.nil? %>
           <% if stamp.user == current_user %>
             <%= link_to mark_complete_stamp_path(stamp), method: :post, remote: true do %>
-              <%= button_tag class: "btn btn-success btn-xs" do %>
+              <%= button_tag class: "btn btn-success btn-xs btn-raised" do %>
                 Complete
               <% end %>
             <% end %>
@@ -52,13 +52,13 @@
           <% if stamp.has_user_bet?(current_user) %>
           <% bet = stamp.bets.where(user: current_user).first %>
             <%= link_to edit_stamp_bet_path(stamp, bet), remote: true do %>
-              <%= button_tag class: "btn btn-success btn-xs" do %>
+              <%= button_tag class: "btn btn-success btn-xs btn-raised" do %>
                 Update Bet
               <% end %>
             <% end %>
           <% else %>
             <%= link_to new_stamp_bet_path(stamp), remote: true do %>
-              <%= button_tag class: "btn btn-success btn-xs" do %>
+              <%= button_tag class: "btn btn-success btn-xs btn-raised" do %>
                 Place Bet
               <% end %>
             <% end %>

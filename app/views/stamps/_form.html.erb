@@ -2,9 +2,9 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :speaker %>
-    <%= f.input :spoken_date %>
-    <%= f.input :completion_date %>
+    <%= f.input :speaker, wrapper_html: {class: "label-floating"}, label: "Who are you calling out?" %>
+    <%= f.text_field :spoken_date, class: "datepicker form-control", placeholder: "When did they say this?" %>
+    <%= f.text_field :completion_date, class: "datepicker form-control", placeholder: "When will this happen by?" %>
     <%= f.input :proof %>
     <%= f.input :quote %>
   </div>

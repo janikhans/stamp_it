@@ -7,7 +7,7 @@ class Stamp < ApplicationRecord
   has_many :bets
   has_many :payouts
 
-  validates :user, presence: true
+  validates :user, :speaker, presence: true
 
   paginates_per 15
 
