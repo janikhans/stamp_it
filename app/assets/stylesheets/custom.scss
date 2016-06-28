@@ -2,232 +2,240 @@
 //   background-color: #f5f5f5;
 // }
 
-.small-gutter > [class*='col-'] {
-  padding-right:10px;
-  padding-left:10px;
+// .small-gutter > [class*='col-'] {
+//   padding-right:10px;
+//   padding-left:10px;
+// }
+//
+// .card {
+//   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+//   margin-top: 10px;
+//   box-sizing: border-box;
+//   border-radius: 2px;
+//   background-clip: padding-box;
+//   background-color: transparent;
+//   span.card-title {
+//     color: #fff;
+//     font-size: 24px;
+//     font-weight: 300;
+//     text-transform: uppercase;
+//   }
+//   .card-image {
+//     position: relative;
+//     overflow: hidden;
+//     img {
+//       border-radius: 2px 2px 0 0;
+//       background-clip: padding-box;
+//       position: relative;
+//     }
+//     span.card-title {
+//       position: absolute;
+//       bottom: 0;
+//       left: 0;
+//       padding: 16px;
+//     }
+//   }
+//   .card-content {
+//     padding: 16px;
+//     border-radius: 0 0 2px 2px;
+//     background-clip: padding-box;
+//     box-sizing: border-box;
+//     p {
+//       margin: 0;
+//       color: inherit;
+//     }
+//     span.card-title {
+//       line-height: 48px;
+//     }
+//   }
+//   .card-action {
+//     border-top: 1px solid rgba(160, 160, 160, 0.2);
+//     padding: 16px;
+//     a {
+//       margin-right: 16px;
+//       transition: color 0.3s ease;
+//       text-transform: uppercase;
+//       &:hover {
+//         color: #ffd8a6;
+//         text-decoration: none;
+//       }
+//     }
+//   }
+// }
+//
+// .profile-card {
+//   .profile-header {
+//     background-image: url("https://pbs.twimg.com/profile_banners/50988711/1384539792/600x200");
+//     background-position: 0 50%;
+//     background-size: 100% auto;
+//     border-bottom: 1px solid #e1e8ed;
+//     border-radius: 4px 4px 0 0;
+//     height: 95px;
+//     width: 100%;
+//     display: block !important;
+//   }
+//   .avatar {
+//     border: 2px solid #fff;
+//     border-radius: 7px;
+//     box-sizing: border-box;
+//     color: #fff;
+//     height: 72px;
+//     width: 72px;
+//   }
+//   .avatar-link {
+//     background-color: #fff;
+//     border-radius: 6px;
+//     display: inline-block !important;
+//     float: left;
+//     margin: -30px 5px 0 8px;
+//     max-width: 100%;
+//     padding: 1px;
+//     vertical-align: bottom;
+//   }
+//   .user {
+//     margin: 5px 0 0;
+//     .username {
+//       font-size: 18px;
+//       font-weight: 700;
+//       line-height: 21px;
+//     }
+//     a {background-color: transparent !important;}
+//   }
+//   .profile-stats {
+//     margin-left: 11px;
+//     padding: 10px 0;
+//     .stats-list {
+//       box-sizing: border-box;
+//       display: table;
+//       margin: 0;
+//       min-width: 100%;
+//       padding: 0;
+//       table-layout: auto;
+//       .stat {
+//         display: table-cell;
+//         padding: 0;
+//         vertical-align: top;
+//         &:hover {
+//           text-decoration: none;
+//         }
+//         .stat-label {
+//           color: #8899a6;
+//           font-size: 10px;
+//           letter-spacing: 0.02em;
+//           overflow: hidden;
+//           text-transform: uppercase;
+//           transition: color 0.15s ease-in-out 0s;
+//           display: block
+//         }
+//         .stat-value {
+//             display: block;
+//             font-size: 18px;
+//             font-weight: 500;
+//             transition: color 0.15s ease-in-out 0s;
+//         }
+//       }
+//     }
+//   }
+// }
+//
+// .stamp-card {
+//   background-color: #f9f9f9;
+//   &:hover {
+//     background-color: #FFF;
+//   }
+//   .speaker-wrapper {
+//     position: relative;
+//     .speaker {
+//       position: absolute;
+//       top: -33px;
+//       background: #333;
+//       padding: 10px 15px;
+//       color: #ffffff;
+//       font-size: 14px;
+//       font-weight: 600;
+//       text-transform: uppercase;
+//     }
+//   }
+//   .stamp-header {
+//     padding: 10px;
+//     margin-top: 5px;
+//     .avatar-link {
+//       text-decoration: none;
+//     }
+//     .user-avatar {
+//       border-radius: 5px;
+//       height: 50px;
+//     }
+//     .stamp-details {
+//       display: inline-block;
+//       .stamp-user {
+//         font-weight: bold;
+//         text-transform: uppercase;
+//         font-size: 15px;
+//         a {
+//           color: inherit;
+//           &:hover { text-decoration: underline;}
+//           }
+//       }
+//       .stamp-date {
+//         color: #a7a7a7;
+//         position: relative;
+//         top: -3px;
+//         font-size: 12px;
+//       }
+//     }
+//   }
+//   .card-content {
+//     padding: 10px 16px;
+//   }
+//   .card-footer {
+//     .progress {
+//       height: 3px;
+//       border-radius: 0px;
+//       margin-bottom: 0px;
+//       transition-property: height;
+//       transition-duration: 0.5s;
+//       &:hover {
+//         transition-property: height;
+//         transition-duration: 0.5s;
+//         height: 10px;
+//       }
+//     }
+//     .bet-details {
+//       padding: 15px;
+//       text-align: right;
+//       font-size: 18px;
+//       color: #616161;
+//       .bet-single-detail {
+//         display: inline-block;
+//         padding: 0px 5px;
+//         &:first-child {
+//           float: left;
+//         }
+//       }
+//     }
+//   }
+// }
+//
+// .trending-card {
+//   ul {
+//     list-style: none;
+//   }
+// }
+//
+// .clear-card {
+//   box-shadow: none;
+// }
+//
+// .payout-list {
+//   list-style: none;
+//   padding: 0px;
+// }
+
+.form-group {
+  .help-block {
+    display: block;
+  }
 }
 
-.card {
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-  margin-top: 10px;
-  box-sizing: border-box;
-  border-radius: 2px;
-  background-clip: padding-box;
-  background-color: transparent;
-  span.card-title {
-    color: #fff;
-    font-size: 24px;
-    font-weight: 300;
-    text-transform: uppercase;
-  }
-  .card-image {
-    position: relative;
-    overflow: hidden;
-    img {
-      border-radius: 2px 2px 0 0;
-      background-clip: padding-box;
-      position: relative;
-    }
-    span.card-title {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      padding: 16px;
-    }
-  }
-  .card-content {
-    padding: 16px;
-    border-radius: 0 0 2px 2px;
-    background-clip: padding-box;
-    box-sizing: border-box;
-    p {
-      margin: 0;
-      color: inherit;
-    }
-    span.card-title {
-      line-height: 48px;
-    }
-  }
-  .card-action {
-    border-top: 1px solid rgba(160, 160, 160, 0.2);
-    padding: 16px;
-    a {
-      margin-right: 16px;
-      transition: color 0.3s ease;
-      text-transform: uppercase;
-      &:hover {
-        color: #ffd8a6;
-        text-decoration: none;
-      }
-    }
-  }
-}
-
-.profile-card {
-  .profile-header {
-    background-image: url("https://pbs.twimg.com/profile_banners/50988711/1384539792/600x200");
-    background-position: 0 50%;
-    background-size: 100% auto;
-    border-bottom: 1px solid #e1e8ed;
-    border-radius: 4px 4px 0 0;
-    height: 95px;
-    width: 100%;
-    display: block !important;
-  }
-  .avatar {
-    border: 2px solid #fff;
-    border-radius: 7px;
-    box-sizing: border-box;
-    color: #fff;
-    height: 72px;
-    width: 72px;
-  }
-  .avatar-link {
-    background-color: #fff;
-    border-radius: 6px;
-    display: inline-block !important;
-    float: left;
-    margin: -30px 5px 0 8px;
-    max-width: 100%;
-    padding: 1px;
-    vertical-align: bottom;
-  }
-  .user {
-    margin: 5px 0 0;
-    .username {
-      font-size: 18px;
-      font-weight: 700;
-      line-height: 21px;
-    }
-    a {background-color: transparent !important;}
-  }
-  .profile-stats {
-    margin-left: 11px;
-    padding: 10px 0;
-    .stats-list {
-      box-sizing: border-box;
-      display: table;
-      margin: 0;
-      min-width: 100%;
-      padding: 0;
-      table-layout: auto;
-      .stat {
-        display: table-cell;
-        padding: 0;
-        vertical-align: top;
-        &:hover {
-          text-decoration: none;
-        }
-        .stat-label {
-          color: #8899a6;
-          font-size: 10px;
-          letter-spacing: 0.02em;
-          overflow: hidden;
-          text-transform: uppercase;
-          transition: color 0.15s ease-in-out 0s;
-          display: block
-        }
-        .stat-value {
-            display: block;
-            font-size: 18px;
-            font-weight: 500;
-            transition: color 0.15s ease-in-out 0s;
-        }
-      }
-    }
-  }
-}
-
-.stamp-card {
-  background-color: #f9f9f9;
-  &:hover {
-    background-color: #FFF;
-  }
-  .speaker-wrapper {
-    position: relative;
-    .speaker {
-      position: absolute;
-      top: -33px;
-      background: #333;
-      padding: 10px 15px;
-      color: #ffffff;
-      font-size: 14px;
-      font-weight: 600;
-      text-transform: uppercase;
-    }
-  }
-  .stamp-header {
-    padding: 10px;
-    margin-top: 5px;
-    .avatar-link {
-      text-decoration: none;
-    }
-    .user-avatar {
-      border-radius: 5px;
-      height: 50px;
-    }
-    .stamp-details {
-      display: inline-block;
-      .stamp-user {
-        font-weight: bold;
-        text-transform: uppercase;
-        font-size: 15px;
-        a {
-          color: inherit;
-          &:hover { text-decoration: underline;}
-          }
-      }
-      .stamp-date {
-        color: #a7a7a7;
-        position: relative;
-        top: -3px;
-        font-size: 12px;
-      }
-    }
-  }
-  .card-content {
-    padding: 10px 16px;
-  }
-  .card-footer {
-    .progress {
-      height: 3px;
-      border-radius: 0px;
-      margin-bottom: 0px;
-      transition-property: height;
-      transition-duration: 0.5s;
-      &:hover {
-        transition-property: height;
-        transition-duration: 0.5s;
-        height: 10px;
-      }
-    }
-    .bet-details {
-      padding: 15px;
-      text-align: right;
-      font-size: 18px;
-      color: #616161;
-      .bet-single-detail {
-        display: inline-block;
-        padding: 0px 5px;
-        &:first-child {
-          float: left;
-        }
-      }
-    }
-  }
-}
-
-.trending-card {
-  ul {
-    list-style: none;
-  }
-}
-
-.clear-card {
-  box-shadow: none;
-}
-
-.payout-list {
-  list-style: none;
-  padding: 0px;
-}
+label { color: inherit;}
