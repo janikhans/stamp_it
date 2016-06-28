@@ -26,7 +26,14 @@ Once you have cloned a copy of the repo, do your typical...
 
     bundle install                      # Shocker, right?
     rake db:create:all
+    rake db:migrate
     rake db:seed
+
+## Where it's at right 'meow
+
+It's still in a very basic form right now. A user can signup/signin, create 'Stamps',
+bet on other stamps and complete stamps. A reputation bank/wallet system is next
+up on the list of immediate plans.
 
 ## Future Goals
 
