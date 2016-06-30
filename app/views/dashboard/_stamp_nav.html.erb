@@ -1,0 +1,20 @@
+<div class="mat-card card-nav-tabs stamp-nav">
+	<div class="header header-primary">
+		<!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
+		<div class="nav-tabs-navigation">
+			<div class="nav-tabs-wrapper">
+				<ul class="nav nav-tabs">
+          <li><%= link_to dashboard_path(:sort_param => "ending_soon") do %><i class="material-icons">build</i>Ending Soon<% end %></li>
+          <li><%= link_to dashboard_path(:sort_param => "ongoing") do %><i class="material-icons">face</i>Feed<% end %></li>
+    		  <li><%= link_to dashboard_path(:sort_param => "completed") do %><i class="material-icons">chat</i>Popular<% end %></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="content">
+    <div class="form-group is-empty">
+      	<input type="text" value="" placeholder="Who are you calling out?" class="form-control">
+    	<span class="material-input"></span>
+    </div>
+  </div>
+</div>

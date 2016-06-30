@@ -1,0 +1,44 @@
+<% if @user.stamps.any? %>
+  <div class="mat-card basic">
+      <div class="card-content">
+        <h4>Recent Stamps <small><%= link_to "View All", stamps_path %></small></h4>
+      </div>
+      <div class="card-body">
+        <ul class="payout-list">
+          <% @user.stamps.each do |b| %>
+            <li>Stamp: <%= link_to "#{b.id}", b %></li>
+          <% end %>
+        </ul>
+      </div>
+  </div>
+<% end %>
+
+<% if @user.bets.any? %>
+  <div class="mat-card basic">
+      <div class="card-content">
+        <h4>Recent Bets <small><%= link_to "View All", bets_path %></small></h4>
+      </div>
+      <div class="card-body">
+        <ul class="payout-list">
+          <% @user.bets.each do |b| %>
+            <li>Wager: <%= link_to "#{b.wager}", b.stamp %></li>
+          <% end %>
+        </ul>
+      </div>
+  </div>
+<% end %>
+
+<% if @user.payouts.any? %>
+  <div class="mat-card basic">
+      <div class="card-content">
+        <h4>Recent Payouts <small><%= link_to "View All", @user %></small></h4>
+      </div>
+      <div class="card-body">
+        <ul class="payout-list">
+          <% @user.payouts.each do |p| %>
+            <li>Payout: <%= link_to "#{p.amount}", p.stamp %></li>
+          <% end %>
+        </ul>
+      </div>
+  </div>
+<% end %>

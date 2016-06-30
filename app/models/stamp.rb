@@ -2,6 +2,7 @@ class Stamp < ApplicationRecord
 
   scope :completed, -> { where "completed_at IS NOT NULL" }
   scope :ongoing, -> { where  completed_at: nil }
+  scope :ending_first, -> { order(completion_date: :asc) }
 
   belongs_to :user
   has_many :bets

@@ -1,56 +1,10 @@
 <div class="row small-gutter">
   <div class="col-md-3">
     <%= render 'shared/profile' %>
-    <% if @user.stamps.any? %>
-      <div class="card clear-card">
-          <div class="card-content">
-            <h4>Recent Stamps</h4>
-              <ul class="payout-list">
-                <% @user.stamps.each do |b| %>
-                  <li>Stamp: <%= link_to "#{b.id}", b %></li>
-                <% end %>
-              </ul>
-          </div>
-          <div class="card-action">
-              <%= link_to "All Stamps", stamps_path %>
-          </div>
-      </div>
-    <% end %>
-
-    <% if @user.bets.any? %>
-      <div class="card clear-card">
-          <div class="card-content">
-            <h4>Recent Bets</h4>
-              <ul class="payout-list">
-                <% @user.bets.each do |b| %>
-                  <li>Wager: <%= link_to "#{b.wager}", b.stamp %></li>
-                <% end %>
-              </ul>
-          </div>
-          <div class="card-action">
-              <%= link_to "All Bets", bets_path %>
-          </div>
-      </div>
-    <% end %>
-
-    <% if @user.payouts.any? %>
-      <div class="card clear-card">
-          <div class="card-content">
-            <h4>Recent Payouts</h4>
-              <ul class="payout-list">
-                <% @user.payouts.each do |p| %>
-                  <li>Payout: <%= link_to "#{p.amount}", p.stamp %></li>
-                <% end %>
-              </ul>
-          </div>
-          <div class="card-action">
-              <%= link_to "All Payouts", @user %>
-          </div>
-      </div>
-    <% end %>
-
+    <%= render 'left_sidebar' %>
   </div>
   <div class="col-md-6">
+    <%= render 'stamp_nav' %>
     <%= render @stamps %>
     <%= paginate @stamps %>
   </div>
