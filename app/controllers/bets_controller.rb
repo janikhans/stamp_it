@@ -15,8 +15,8 @@ class BetsController < ApplicationController
   end
 
   def create
-    @bet = @stamp.bets.build(bet_params)
-    @bet.user = current_user
+    @bet = current_user.ledger.bets.build(bet_params)
+    @bet.stamp = @stamp
 
     respond_to do |format|
       if @bet.save

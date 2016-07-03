@@ -17,26 +17,33 @@ ActiveRecord::Schema.define(version: 20160622231234) do
   enable_extension "plpgsql"
 
   create_table "bets", force: :cascade do |t|
-    t.integer  "user_id"
+    t.integer  "ledger_id"
     t.integer  "stamp_id"
     t.boolean  "outcome"
     t.integer  "wager"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["ledger_id"], name: "index_bets_on_ledger_id", using: :btree
     t.index ["stamp_id"], name: "index_bets_on_stamp_id", using: :btree
-    t.index ["user_id"], name: "index_bets_on_user_id", using: :btree
+  end
+
+  create_table "ledgers", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_ledgers_on_user_id", using: :btree
   end
 
   create_table "payouts", force: :cascade do |t|
-    t.integer  "user_id"
+    t.integer  "ledger_id"
     t.integer  "stamp_id"
     t.integer  "bet_id"
     t.integer  "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["bet_id"], name: "index_payouts_on_bet_id", using: :btree
+    t.index ["ledger_id"], name: "index_payouts_on_ledger_id", using: :btree
     t.index ["stamp_id"], name: "index_payouts_on_stamp_id", using: :btree
-    t.index ["user_id"], name: "index_payouts_on_user_id", using: :btree
   end
 
   create_table "stamps", force: :cascade do |t|
@@ -71,10 +78,11 @@ ActiveRecord::Schema.define(version: 20160622231234) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "bets", "ledgers"
   add_foreign_key "bets", "stamps"
-  add_foreign_key "bets", "users"
+  add_foreign_key "ledgers", "users"
   add_foreign_key "payouts", "bets"
+  add_foreign_key "payouts", "ledgers"
   add_foreign_key "payouts", "stamps"
-  add_foreign_key "payouts", "users"
   add_foreign_key "stamps", "users"
 end

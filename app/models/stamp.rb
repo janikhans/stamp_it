@@ -13,7 +13,7 @@ class Stamp < ApplicationRecord
   paginates_per 15
 
   def has_user_bet?(user)
-    self.bets.where(user: user).any?
+    self.bets.where(ledger: user.ledger).any?
   end
 
   def completed?
@@ -56,7 +56,7 @@ class Stamp < ApplicationRecord
     bets = self.bets
     bets.each do |bet|
       payout = bet.payouts.build
-      payout.user = bet.user
+      payout.ledger = bet.ledger
       payout.stamp = self
       if bet.outcome === self.outcome
         share = bet.wager/self.winners_pool.to_f

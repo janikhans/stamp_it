@@ -9,7 +9,6 @@
 admin = User.create!(username: 'Admin', email: 'admin@gmail.com', password: 'password', password_confirmation: 'password')
 janik = User.create!(username: 'Janik', email: 'janik.knittle@gmail.com', password: 'password', password_confirmation: 'password')
 
-
 40.times do |n|
   username  = Faker::Internet.user_name(5)
   email = Faker::Internet.free_email
@@ -38,8 +37,8 @@ end
 User.all.each do |n|
   stamps = Stamp.all.sample(5)
   stamps.each do |s|
-    b = s.bets.build
-    b.user = n
+    b = n.ledger.bets.build
+    b.stamp = s
     b.wager = Faker::Number.between(1, 150)
     b.outcome = Faker::Boolean.boolean
     b.save

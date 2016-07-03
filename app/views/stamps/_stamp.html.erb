@@ -50,7 +50,7 @@
             <% end %>
           <% end %>
           <% if stamp.has_user_bet?(current_user) %>
-          <% bet = stamp.bets.where(user: current_user).first %>
+          <% bet = stamp.bets.where(ledger: current_user.ledger).first %>
             <%= link_to edit_stamp_bet_path(stamp, bet), remote: true do %>
               <%= button_tag class: "btn btn-success btn-xs btn-raised" do %>
                 Update Bet

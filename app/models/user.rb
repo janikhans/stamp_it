@@ -4,14 +4,19 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_one :ledger
   has_many :stamps
-  has_many :bets
-  has_many :payouts
+  has_many :bets, through: :ledger
+  has_many :payouts, through: :ledger
+
 
   validates :username, uniqueness: { case_sensitive: false}, presence: true, length: { in: 4..20}
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255}, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
   validate :validate_username
+
+  after_create :create_ledger
+
   attr_accessor :login
 
   def self.find_first_by_auth_conditions(warden_conditions)
