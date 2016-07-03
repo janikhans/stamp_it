@@ -1,0 +1,2 @@
+class ComputerLoan < Loan
+end

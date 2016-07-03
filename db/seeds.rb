@@ -34,15 +34,25 @@ end
                quote: quote)
 end
 
-User.all.each do |n|
-  stamps = Stamp.all.sample(5)
-  stamps.each do |s|
-    b = n.ledger.bets.build
-    b.stamp = s
-    b.wager = Faker::Number.between(1, 150)
-    b.outcome = Faker::Boolean.boolean
-    b.save
-  end
+# User.all.each do |n|
+#   stamps = Stamp.all.sample(5)
+#   stamps.each do |s|
+#     b = n.ledger.bets.build
+#     b.stamp = s
+#     b.wager = Faker::Number.between(1, (n.ledger.available * 0.9))
+#     b.outcome = Faker::Boolean.boolean
+#     b.save
+#   end
+# end
+
+200.times do |n|
+  user = User.all.sample
+  stamp = Stamp.all.sample
+  bet = user.ledger.bets.build
+  bet.stamp = stamp
+  bet.wager = Faker::Number.between(1, (user.ledger.available * 0.9))
+  bet.outcome = Faker::Boolean.boolean
+  bet.save
 end
 
 20.times do |n|

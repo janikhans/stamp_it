@@ -61,7 +61,7 @@
   <tbody>
     <% @bets.each do |bet| %>
       <tr>
-        <td><%= bet.user.email %></td>
+        <td><%= bet.ledger.user.username %></td>
         <td><%= bet.outcome %></td>
         <td><%= bet.wager %></td>
         <td><%= link_to 'Edit', edit_stamp_bet_path(@stamp, bet) %></td>
@@ -86,7 +86,7 @@
     <tbody>
       <% @stamp.payouts.each do |payout| %>
         <tr>
-          <td><%= payout.user.username %></td>
+          <td><%= payout.ledger.user.username %></td>
           <td><%= payout.bet.outcome == payout.stamp.outcome %></td>
           <td><%= payout.bet.wager %></td>
           <td><%= payout.amount %></td>

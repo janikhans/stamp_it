@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  ledger: one
+  amount: 1
+  type: 
+
+two:
+  user: two
+  ledger: two
+  amount: 1
+  type: 

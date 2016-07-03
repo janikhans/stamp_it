@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160622231234) do
+ActiveRecord::Schema.define(version: 20160703035047) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,8 +21,9 @@ ActiveRecord::Schema.define(version: 20160622231234) do
     t.integer  "stamp_id"
     t.boolean  "outcome"
     t.integer  "wager"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.boolean  "completed",  default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.index ["ledger_id"], name: "index_bets_on_ledger_id", using: :btree
     t.index ["stamp_id"], name: "index_bets_on_stamp_id", using: :btree
   end
@@ -32,6 +33,17 @@ ActiveRecord::Schema.define(version: 20160622231234) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_ledgers_on_user_id", using: :btree
+  end
+
+  create_table "loans", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "ledger_id"
+    t.integer  "amount"
+    t.string   "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ledger_id"], name: "index_loans_on_ledger_id", using: :btree
+    t.index ["user_id"], name: "index_loans_on_user_id", using: :btree
   end
 
   create_table "payouts", force: :cascade do |t|
@@ -81,6 +93,8 @@ ActiveRecord::Schema.define(version: 20160622231234) do
   add_foreign_key "bets", "ledgers"
   add_foreign_key "bets", "stamps"
   add_foreign_key "ledgers", "users"
+  add_foreign_key "loans", "ledgers"
+  add_foreign_key "loans", "users"
   add_foreign_key "payouts", "bets"
   add_foreign_key "payouts", "ledgers"
   add_foreign_key "payouts", "stamps"

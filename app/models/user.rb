@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :stamps
   has_many :bets, through: :ledger
   has_many :payouts, through: :ledger
+  has_many :loans, through: :ledger
 
 
   validates :username, uniqueness: { case_sensitive: false}, presence: true, length: { in: 4..20}

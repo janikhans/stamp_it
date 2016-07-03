@@ -5,6 +5,7 @@ class CreateBets < ActiveRecord::Migration[5.0]
       t.references :stamp, foreign_key: true
       t.boolean :outcome
       t.integer :wager
+      t.boolean :completed, default: false
 
       t.timestamps
     end

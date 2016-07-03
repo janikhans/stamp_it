@@ -21,7 +21,7 @@
       <div class="card-body">
         <ul class="payout-list">
           <% @user.bets.each do |b| %>
-            <li>Wager: <%= link_to "#{b.wager}", b.stamp %></li>
+            <li>Wager: <%= link_to "#{b.wager}", b.stamp %> <%= b.completed %></li>
           <% end %>
         </ul>
       </div>

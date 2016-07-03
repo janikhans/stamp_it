@@ -16,6 +16,10 @@ class Stamp < ApplicationRecord
     self.bets.where(ledger: user.ledger).any?
   end
 
+  def all_user_bets(user)
+    self.bets.where(ledger: user.ledger)
+  end
+
   def completed?
     !completed_at.nil? && !outcome.nil?
   end
@@ -64,6 +68,8 @@ class Stamp < ApplicationRecord
       else
         payout.amount = -bet.wager
       end
+      # FIXME quick hack, this needs to be fixed
+      bet.update_attribute(:completed, true)
       payout.save
     end
   end
